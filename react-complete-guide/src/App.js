@@ -22,8 +22,6 @@ class App extends Component {
         { name: "Kat", age: 3 },
         { name: "Stephanie", age: 350 }
       ],
-
-      clicked: !this.state.clicked,
     })
   }
 
@@ -36,7 +34,7 @@ class App extends Component {
     return (
       <div className="App">
         <h1>Hi! I'm a react Component</h1>
-        <button onClick={this.switchNameHandler} >Switch Names</button>
+        <button onClick={this.switchNameHandler.bind(this, "Maxi!!!")} >Switch Names</button>
         <button onClick={this.toggleHandler} >{this.state.clicked ? 'ON' : 'OFF'}</button>
         <Person
           name={this.state.persons[0].name}
@@ -55,6 +53,6 @@ class App extends Component {
   }
 }
 
-export default app;
+export default App;
 
 
