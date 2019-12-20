@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import './App.css';
 import Person from './Person/Person'
 
+
 class App extends Component {
   state = {
     persons: [
@@ -9,14 +10,9 @@ class App extends Component {
       { name: "Kat", age: 3 },
       { name: "Stephanie", age: 26 }
     ],
+    clicked: true,
 
-    clicked: true
-  }
-
-  toggleHandler = () => {
-    this.setState({
-      clicked: !this.state.clicked
-    })
+    otherState: "some other unchanged state"
   }
 
   switchNameHandler = (newName) => {
@@ -25,10 +21,17 @@ class App extends Component {
         { name: newName, age: 34 },
         { name: "Kat", age: 3 },
         { name: "Stephanie", age: 350 }
-      ]
+      ],
+
+      clicked: !this.state.clicked,
     })
   }
 
+  toggleHandler = () => {
+    this.setState({
+      clicked: !this.state.clicked
+    })
+  }
   render() {
     return (
       <div className="App">
@@ -52,4 +55,6 @@ class App extends Component {
   }
 }
 
-export default App;
+export default app;
+
+
