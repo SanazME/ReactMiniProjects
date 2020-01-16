@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import ValidationComponent from './ValidationComponent/ValidationComponent'
 
 export default class App extends Component {
   state = {
@@ -23,6 +24,10 @@ export default class App extends Component {
         Input Text :
         <input type="text" onChange={this.outputLengthHandler} value={this.state.inputText} />
         <h2>The length of the input text is : {this.state.inputLength}</h2>
+
+        <ValidationComponent
+          length={this.state.inputLength}
+        />
       </div>
     )
   }
