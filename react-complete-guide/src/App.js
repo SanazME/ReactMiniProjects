@@ -49,7 +49,8 @@ class App extends Component {
 
   render() {
     const style = {
-      backgroundColor: 'white',
+      backgroundColor: 'green',
+      color: 'white',
       font: 'inherit',
       border: '1px solid blue',
       padding: '8px',
@@ -64,7 +65,6 @@ class App extends Component {
             return (
               <Person
                 click={() => { this.deletePersonHandler(index) }}
-                // click={this.deletePersonHandler.bind(this, index)}
                 name={person.name}
                 age={person.age}
                 key={person.id}
@@ -73,6 +73,7 @@ class App extends Component {
           })}
         </div>
       )
+      style.backgroundColor = 'red'
     }
 
     return (
