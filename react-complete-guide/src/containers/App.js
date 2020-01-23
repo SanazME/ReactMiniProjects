@@ -4,6 +4,12 @@ import Persons from '../components/Persons/Persons'
 import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
+  constructor(props) {
+    super(props);
+    console.log('[App.js] constructor')
+    // this.state = ...
+  }
+
   state = {
     persons: [
       { id: 'asdfa', name: "Bob", age: 34 },
@@ -15,6 +21,15 @@ class App extends Component {
     otherState: "some other unchanged state",
 
     showPerson: false
+  }
+
+  static getDerivedStateFromProps(props, state) {
+    console.log('[App.js] getDerivedStateFromProps', props)
+    return state
+  }
+
+  componentDidMount() {
+    console.log('[App.js] componentDidMount')
   }
 
   togglePersonHandler = () => {
@@ -48,6 +63,7 @@ class App extends Component {
   }
 
   render() {
+    console.log('[App.js] render')
 
     let people = null
     if (this.state.showPerson) {
