@@ -2,6 +2,7 @@ import React from 'react'
 import Person from './Person/Person'
 
 export default function Persons(props) {
+    // Return a list
     return props.persons.map((person, index) => {
         return (
             <Person

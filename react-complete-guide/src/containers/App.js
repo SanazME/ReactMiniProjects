@@ -1,8 +1,7 @@
 import React, { Component } from 'react';
-import './App.css';
-import Person from '../components/Persons/Person/Person'
+import classes from './App.css';
 import Persons from '../components/Persons/Persons'
-import Radium, { StyleRoot } from 'radium'
+import Cockpit from '../components/Cockpit/Cockpit'
 
 class App extends Component {
   state = {
@@ -49,64 +48,30 @@ class App extends Component {
   }
 
   render() {
-    const style = {
-      backgroundColor: 'green',
-      color: 'white',
-      font: 'inherit',
-      border: '1px solid blue',
-      padding: '8px',
-      cursor: 'pointer',
-      ':hover': {
-        backgroundColor: 'lightgreen',
-        color: 'black'
-      }
-
-    };
 
     let people = null
     if (this.state.showPerson) {
       people = (
-        <div>
-          <Persons
-            persons={this.state.persons}
-            clicked={this.deletePersonHandler}
-            changed={this.nameChangeHandler} />
-        </div>
-      );
-      style.backgroundColor = 'red'
-      style[':hover'] = {
-        backgroundColor: 'salmon',
-        color: 'black'
-      }
+        <Persons
+          persons={this.state.persons}
+          clicked={this.deletePersonHandler}
+          changed={this.nameChangeHandler} />
+      )
     }
-
-    // Define class names in an array
-    const classes = []; //"red bold" => creates a valid css class
-    if (this.state.persons.length <= 2) {
-      classes.push('red') // classes=['red']
-    }
-    if (this.state.persons.length <= 1) {
-      classes.push('bold'); // classes=['red','bold']
-    }
-
 
     return (
-      <StyleRoot>
-        <div className="App">
-          <h1>Hi! I'm a react Component</h1>
-          <p className={classes.join(' ')}>This is really working</p>
-          <button
-            style={style}
-            onClick={this.togglePersonHandler} >
-            Switch Names
-        </button>
-          {people}
-        </div>
-      </StyleRoot>
+      <div className={classes.App}>
+        <Cockpit
+          personsLength={this.state.persons.length}
+          showPerson={this.state.showPerson}
+          clicked={this.togglePersonHandler}
+        />
+        {people}
+      </div>
     );
   }
 }
 
-export default Radium(App);
+export default App;
 
 
