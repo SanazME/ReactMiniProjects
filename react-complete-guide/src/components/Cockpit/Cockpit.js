@@ -1,7 +1,12 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import classes from './Cockpit.css'
 
 export default function Cockpit(props) {
+
+    useEffect(() => {
+        console.log('[Cockpit.js] useEffect')
+    });
+
     // Define class names in an array
     const assignedClasses = []; //"red bold" => creates a valid css class
     let btnClass = '';
