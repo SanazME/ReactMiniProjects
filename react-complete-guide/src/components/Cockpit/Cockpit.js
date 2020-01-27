@@ -5,7 +5,10 @@ export default function Cockpit(props) {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
-    });
+        setTimeout(() => {
+            alert('Saved in the cloud!')
+        }, 1000);
+    }, [props.personsLength]);
 
     // Define class names in an array
     const assignedClasses = []; //"red bold" => creates a valid css class
