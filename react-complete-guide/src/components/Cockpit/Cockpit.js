@@ -8,7 +8,7 @@ export default function Cockpit(props) {
         setTimeout(() => {
             alert('Saved in the cloud!')
         }, 1000);
-    }, [props.personsLength]);
+    }, []);
 
     // Define class names in an array
     const assignedClasses = []; //"red bold" => creates a valid css class
