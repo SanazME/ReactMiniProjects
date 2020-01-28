@@ -5,11 +5,12 @@ export default function Cockpit(props) {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
-        setTimeout(() => {
+        const timer = setTimeout(() => {
             alert('Saved in the cloud!')
         }, 1000);
         return () => {
             console.log('[Cockpit.js] cleanup work in useEffect')
+            clearTimeout(timer)
         }
     }, []);
 
