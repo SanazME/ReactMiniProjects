@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react'
 import classes from './Cockpit.css'
 
-export default function Cockpit(props) {
+function Cockpit(props) {
 
     useEffect(() => {
         console.log('[Cockpit.js] useEffect')
@@ -47,5 +47,7 @@ export default function Cockpit(props) {
         </div>
     )
 }
+
+export default React.memo(Cockpit)
 
 
