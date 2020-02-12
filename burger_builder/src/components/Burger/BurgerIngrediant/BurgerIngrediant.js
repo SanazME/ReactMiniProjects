@@ -12,7 +12,7 @@ export default function burgerIngrediant(props) {
 
         case ('bread-top'):
             ingrediant = (
-                <div className={classes.BurgerTop}>
+                <div className={classes.BreadTop}>
                     <div className={classes.Seeds1}></div>
                     <div className={classes.Seeds2}></div>
                 </div>
@@ -41,6 +41,6 @@ export default function burgerIngrediant(props) {
     return ingrediant
 
     burgerIngrediant.propTypes = {
-        type: propType.string.isRequired
+        type: propTypes.string.isRequired
     }
 };
