@@ -4,16 +4,19 @@ import BurgerIngrediants from './BurgerIngrediant/BurgerIngrediant';
 
 export default function burger(props) {
 
-    let ingrediantArray = [];
+    // transform the ingrediant obj to an array of jsx with unique keys
+    let ingrediantArray = Object.keys(props.ingrediants)
+        .map(ingKey => [...Array(props.ingrediants[ingKey])]
+            .map((_, i) => {
+                return <BurgerIngrediants type={ingKey} key={ingKey + i} />
+            })
+        )
+        .reduce((acc, ele) => acc.concat(ele), [])
 
-    for (const ingrediant in props.ingrediants) {
-        ingrediantArray.push([...Array(props.ingrediants[ingrediant])].map(
-            (_, i) => {
-                return <BurgerIngrediants type={ingrediant} key={ingrediant + i} />
-            }
-        ))
+    // check if the ingrediant array is empty
+    if (ingrediantArray.length === 0) {
+        ingrediantArray = <p>Please start adding ingrediants!</p>
     }
-    console.log(ingrediantArray)
 
     return (
         <div className={classes.Burger}>
