@@ -21,8 +21,6 @@ export default function burger(props) {
     return (
         <div className={classes.Burger}>
             <BurgerIngrediants type="bread-top" />
-            {/* <BurgerIngrediants type="cheese" />
-            <BurgerIngrediants type="meat" /> */}
             {ingrediantArray}
             <BurgerIngrediants type="bread-bottom" />
         </div>

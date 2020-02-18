@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Burger from '../../components/Burger/Burger'
+import BuildControls from '../../components/Burger/BuildControls/BuildControls'
 
 export default class BurgerBuilder extends Component {
     // constructor(props) {
@@ -20,7 +21,7 @@ export default class BurgerBuilder extends Component {
         return (
             <Fragment>
                 <Burger ingrediants={this.state.ingrediants} />
-                <div>Build Controls</div>
+                <BuildControls />
             </Fragment>
         )
     }
