@@ -67,12 +67,21 @@ export default class BurgerBuilder extends Component {
     }
 
     render() {
+        // Diable less kets when the count of ingerediant is zero (or less)
+        const disabledInfo = { ...this.state.ingrediants };
+        for (let key in disabledInfo) {
+            disabledInfo[key] = disabledInfo[key] === 0;
+        }
+
+        console.log(disabledInfo)
+
         return (
             <Fragment>
                 <Burger ingrediants={this.state.ingrediants} />
                 <BuildControls
                     ingrediantAdded={this.addIngrediantHandler}
                     ingrediantRemoved={this.removeIngrediantHandler}
+                    disabled={disabledInfo}
                 />
             </Fragment>
         )
