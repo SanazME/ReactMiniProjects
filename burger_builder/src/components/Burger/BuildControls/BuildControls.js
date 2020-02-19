@@ -14,7 +14,12 @@ export default function BuildControls(props) {
     return (
         <div className={classes.BuildControls}>
             {controls.map(ele => (
-                <BuildControl key={ele.label} label={ele.label} />
+                <BuildControl
+                    added={() => { props.ingrediantAdded(ele.type) }}
+                    removed={() => { props.ingrediantRemoved(ele.type) }}
+                    key={ele.label}
+                    label={ele.label}
+                />
             ))}
         </div>
     )
