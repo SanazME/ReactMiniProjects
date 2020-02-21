@@ -91,7 +91,12 @@ export default class BurgerBuilder extends Component {
                 totalPrice: newTotalPrice
             }
         })
+    }
 
+    purchaseCancelHandler = () => {
+        this.setState({
+            ordering: false
+        })
     }
 
     render() {
@@ -103,7 +108,7 @@ export default class BurgerBuilder extends Component {
 
         return (
             <Fragment>
-                <Modal show={this.state.ordering}>
+                <Modal show={this.state.ordering} modalClosed={this.purchaseCancelHandler}>
                     <OrderSummary ingrediants={this.state.ingrediants} />
                 </Modal>
                 <Burger ingrediants={this.state.ingrediants} />
