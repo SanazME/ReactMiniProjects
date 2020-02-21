@@ -2,6 +2,8 @@ import React, { Component, Fragment } from 'react'
 import PropTypes from 'prop-types'
 import Burger from '../../components/Burger/Burger'
 import BuildControls from '../../components/Burger/BuildControls/BuildControls'
+import Modal from '../../components/UI/Modal/Modal'
+import OrderSummary from '../../components/Burger/OrderSummary/OrderSummary'
 
 // Define a global constant to map ingrediants and their prices
 const INGREDIANT_PRICE = {
@@ -94,6 +96,9 @@ export default class BurgerBuilder extends Component {
 
         return (
             <Fragment>
+                <Modal>
+                    <OrderSummary ingrediants={this.state.ingrediants} />
+                </Modal>
                 <Burger ingrediants={this.state.ingrediants} />
                 <BuildControls
                     ingrediantAdded={this.addIngrediantHandler}
