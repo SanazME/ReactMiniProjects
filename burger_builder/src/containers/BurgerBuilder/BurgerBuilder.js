@@ -99,6 +99,10 @@ export default class BurgerBuilder extends Component {
         })
     }
 
+    purchaseContinueHandler = () => {
+        alert('You continue!')
+    }
+
     render() {
         // Diable less kets when the count of ingerediant is zero (or less)
         const disabledInfo = { ...this.state.ingrediants };
@@ -109,7 +113,10 @@ export default class BurgerBuilder extends Component {
         return (
             <Fragment>
                 <Modal show={this.state.ordering} modalClosed={this.purchaseCancelHandler}>
-                    <OrderSummary ingrediants={this.state.ingrediants} />
+                    <OrderSummary
+                        ingrediants={this.state.ingrediants}
+                        purchaseCanceled={this.purchaseCancelHandler}
+                        purchaseContinued={this.purchaseContinueHandler} />
                 </Modal>
                 <Burger ingrediants={this.state.ingrediants} />
                 <BuildControls
