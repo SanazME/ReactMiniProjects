@@ -2,7 +2,7 @@ import React, { Fragment } from 'react'
 import classes from './Modal.module.css'
 import Backdrop from '../Backdrop/Backdrop'
 
-export default function Modal(props) {
+export default React.memo(function Modal(props) {
     return (
         <Fragment>
             <Backdrop show={props.show} clicked={props.modalClosed} />
@@ -16,4 +16,4 @@ export default function Modal(props) {
             </div>
         </Fragment>
     )
-}
+})
