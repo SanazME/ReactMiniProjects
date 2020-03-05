@@ -27,8 +27,6 @@ class Blog extends Component {
                 this.setState({
                     posts: updatedPosts
                 });
-
-                console.log(this.state.posts)
             })
     }
 
